@@ -1,9 +1,6 @@
 //#define UNDIRECTION
-//#include "LDFS.h"
-#define _CRTDBG_MAP_ALLOC
-#include <crtdbg.h>
-#include <stdlib.h>
-#include "MBFS.h"
+#include "LDFS.h"
+//#include "MBFS.h"
 #include "Queue.h"
 
 //void TestQueue(){
@@ -34,10 +31,9 @@
 //} 
 
 int main(){
-	MGraph Graph = BuildGraph();
-	BFS(Graph, 0);
-	//DestoryGraph(Graph);
-	_CrtDumpMemoryLeaks();
+	LGraph Graph = BuildGraph();
+	DFS(Graph, 0);
+	DestoryGraph(Graph);
 	//TestQueue();
 	return 0;
 }
