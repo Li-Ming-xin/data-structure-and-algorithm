@@ -2,9 +2,14 @@
 #ifndef __MINHEAP_H__
 #define __MINHEAP_H__
 #include "LGraph.h"
+#include <string.h>
 
 #define MAXCAPACITY 500
-typedef Edge Element;
+typedef struct Node *Element;
+struct Node{
+	Vertex V;
+	Weight weight;
+};
 typedef struct HNode *Heap;
 struct HNode{
 	Element elements[MAXCAPACITY];
@@ -14,6 +19,7 @@ struct HNode{
 Heap CreateHeap(){
 	Heap H;
 	H = (Heap)malloc(sizeof(struct HNode));
+	memset(H->elements, 0, MAXCAPACITY*sizeof(Element));
 	H->size = 0;
 }
 
@@ -54,11 +60,6 @@ Element Pop(Heap H){
 }
 
 void DestoryHeap(Heap H){
-	int i;
-	for(i = 1; i <= H->size; ++i){
-		free(H->elements[i]);
-	}
 	free(H);
-}
-
+} 
 #endif
