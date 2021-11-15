@@ -11,4 +11,6 @@
 	4.1 对于有向无环图(DAG)，可使用DAGShortest.h中的算法，时间复杂度为O(|V|+|E|)
 	4.2 Bellman Ford算法(bellman_ford.h)，时间复杂度为O(|V||E|)
 	4.3 Dijkstra算法(Dijkstra.h)，时间复杂度为O((|V|+|E|)*log|V|)
-5. 实现算法的过程中需要的一些数据结构，队列(Queue.h)和小顶堆(MinHeap.h)
+5. 基于邻接矩阵实现的多源最短路算法
+	5.1 Floyd算法(Floyd.h)，时间复杂度为O(|V|^3)
+6. 实现算法的过程中需要的一些数据结构，队列(Queue.h)和小顶堆(MinHeap.h)
