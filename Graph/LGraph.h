@@ -44,7 +44,7 @@ LGraph CreateGraph(int VertexNum){
 	Graph = (LGraph)malloc(sizeof(struct GNode));
 	Graph->Nv = VertexNum;
 	Graph->Ne = 0;
-	for(V = 0; V < Graph->Nv; ++V){
+	for(V = 0; V < MaxVertexNum; ++V){
 		Graph->G[V].FirstNode = NULL;
 	}
 	return Graph;

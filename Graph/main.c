@@ -7,27 +7,32 @@
 //#include "bellman_ford.h"
 //#include "TopSort.h"
 //#include "DAGShortest.h"
-#include "Floyd.h"
+//#include "Floyd.h"
+#include "Johnson.h"
 
-void printDandP(int *path, int *dist, int len){
-
-	for(int i = 0; i < len; ++i){
-		printf("%d ", dist[i]);
+void printPath(int *path, int i, int j){
+	if(i == j){
+		printf("%d ", i);
+	}else if(path[j] == -1){
+		printf("no path from %d to %d\n", i, j);
+	}else{
+		printPath(path, i, path[j]);
+		printf("%d ", j);
 	}
-	printf("\n");
+}
+
+void printDandP(int *path, int *dist, int len, int s){
+
 	for(int i = 0; i < len; ++i){
-		int j = i;
-		printf("%d : ", i);
-		while(path[j] != -1){
-			printf("%d <- ", j);
-			j = path[j];
-		}
-		printf("%d\n", j);
+		printf("%d -> %d: \npath: ", s, i);
+		printPath(path, s, i);
+		printf("\ndist: ");
+		printf("%d \n", dist[i]);
 	}
 }
 
 int main(){
-	MGraph Graph = BuildGraph();
+	LGraph Graph = BuildGraph();
 	/*
 	int *path = (int*)malloc(sizeof(int)*Graph->Nv);
 	int *d = (int*)malloc(sizeof(int)*Graph->Nv);
@@ -53,16 +58,19 @@ int main(){
 	int **path = (int**)malloc(sizeof(int*)*Graph->Nv);
 	int **dist = (int**)malloc(sizeof(int*)*Graph->Nv);
 	for(int i = 0; i < Graph->Nv; ++i){
-		path[i] = (int*)malloc(sizeof(int)*Graph->Nv);
-		dist[i] = (int*)malloc(sizeof(int)*Graph->Nv);
+		path[i] = (int*)malloc(sizeof(int)*(Graph->Nv+1));
+		dist[i] = (int*)malloc(sizeof(int)*(Graph->Nv+1));
 	}
-	Floyd(Graph, path, dist);
-	for(int i = 0; i < Graph->Nv; ++i){
-		for(int j = 0; j < Graph->Nv; ++j){
-			PrintPathAndDist(path, dist, i, j);
-		}
+	Johnson(Graph, path, dist);
+	int Nv = Graph->Nv - 1;
+	for(int i = 0; i < Nv; ++i){
+//		for(int j = 0; j < Graph->Nv; ++j){
+		//	PrintPathAndDist(path, dist, i, j);
+		printDandP(path[i], dist[i], Nv, i);
+//		}
+//		printf("\n");
 	}
-	for(int i = 0; i < Graph->Nv; ++i){
+	for(int i = 0; i < Nv; ++i){
 		free(path[i]);
 		free(dist[i]);
 	}
