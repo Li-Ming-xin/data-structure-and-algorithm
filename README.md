@@ -15,3 +15,6 @@
 	5.1 Floyd算法(Floyd.h)，时间复杂度为O(|V|^3)
 	5.2 Johnson算法(Johnson.h)，时间复杂度为O(|V||E|log|V|)，适用于稀疏图，可以有负权重，但不能有负值圈。
 6. 实现算法的过程中需要的一些数据结构，队列(Queue.h)和小顶堆(MinHeap.h)
+7. 最小生成树
+	7.1 Prim算法(Prim.h)
+	7.2 Kruskal算法(Kruskal.h)

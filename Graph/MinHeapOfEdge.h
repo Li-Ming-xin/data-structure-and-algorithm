@@ -1,15 +1,11 @@
 /* MaxHeap 小顶堆（优先队列） */
-#ifndef __MINHEAP_H__
-#define __MINHEAP_H__
+#ifndef __MINHEAPOFEDGE_H__ 
+#define __MINHEAPOFEDGE_H__
 #include "LGraph.h"
 #include <string.h>
 
 #define MAXCAPACITY 500
-typedef struct Node *Element;
-struct Node{
-	Vertex V;
-	Weight weight;
-};
+typedef Edge Element;
 typedef struct HNode *Heap;
 struct HNode{
 	Element elements[MAXCAPACITY];
