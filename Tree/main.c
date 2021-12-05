@@ -1,6 +1,7 @@
-#include "BST.h"
+//#include "BST.h"
+#include "RBT.h"
 
 int main(){
-	TestBST();
+	TestRBT();
 	return 0;
 }
