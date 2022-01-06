@@ -1,7 +1,8 @@
 # data-structure-and-algorithm
-用于自学，水平有限，欢迎指正。
+*用于自学，水平有限，欢迎指正。*
 
---------------Graph/-------------
+- Graph
+
 1. 图的表示：邻接表(LGraph.h)和邻接矩阵(MGraph.h)
 2. 图的遍历：DFS(DFS.h)与BFS(BFS.h)
 3. 图的拓扑排序(TopSort.h)，时间复杂度为O(|V|+|E|)
@@ -17,8 +18,10 @@
 	7.1 Prim算法(Prim.h)
 	7.2 Kruskal算法(Kruskal.h)
 
---------------Tree/------------
+- Tree
+
 1. 树的表示: Tree.h
 2. 二叉搜索树的通用操作，不包含插入和删除操作（因为插入和删除对于普通二叉搜索树和平衡二叉搜索树之间有差异）: BasicOperate.h
 3. 二叉搜索树的插入和删除: BST.h
 4. 红黑树的插入和删除: RBT.h
+5. 线段树，用于区间查询与区间修改: segementTree.cpp
